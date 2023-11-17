@@ -107,7 +107,7 @@ resource "aws_instance" "app_server" {
     }
   }
   provisioner "file" {
-    source      = "/telem/index.html"  # Ruta local del archivo HTML
+    source      = "/index.html"  # Ruta local del archivo HTML
     destination = "/var/www/html/index.html"          # Ruta en la instancia EC2
     }
 }
