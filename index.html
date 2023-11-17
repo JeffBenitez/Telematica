@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hora en distintos países</title>
+  <script>
+    function mostrarHora() {
+      const d = new Date();
+
+      const horaLocal = d.toLocaleTimeString();
+      document.getElementById("hora-local").innerText = `Hora local: ${horaLocal}`;
+
+      const horaUTC = d.toUTCString();
+      document.getElementById("hora-utc").innerText = `Hora UTC: ${horaUTC}`;
+      
+      const horaNewYork = d.toLocaleTimeString("en-US", {timeZone: "America/New_York"});
+      document.getElementById("hora-new-york").innerText = `Hora en Nueva York: ${horaNewYork}`;
+
+      const horaTokyo = d.toLocaleTimeString("en-US", {timeZone: "Asia/Tokyo"});
+      document.getElementById("hora-tokyo").innerText = `Hora en Tokio: ${horaTokyo}`;
+    }
+
+    // Actualizar cada segundo
+    setInterval(mostrarHora, 1000);
+
+    // Mostrar la hora al cargar la página
+    window.onload = mostrarHora;
+  </script>
+</head>
+<body>
+  <h1>Hora en distintos países</h1>
+  <div id="hora-local"></div>
+  <div id="hora-utc"></div>
+  <div id="hora-new-york"></div>
+  <div id="hora-tokyo"></div>
+</body>
+</html>
